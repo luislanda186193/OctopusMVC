@@ -1,0 +1,39 @@
+﻿@model Octopus.Models.Grupo
+
+@{
+    ViewData["Title"] = "Create";
+    string userId = ViewBag.userId;
+    string message = ViewBag.message;
+}
+
+<h1>Create</h1>
+
+<h4>Grupo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <label class="text-danger">@message</label>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" value="@userId" asp-for="OwnerId" />
+            <span asp-validation-for="OwnerId" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="GroupName" class="control-label"></label>
+                <input asp-for="GroupName" class="form-control" />
+                <span asp-validation-for="GroupName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

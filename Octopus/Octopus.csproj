@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-Octopus-1A020B6C-1B53-4C5A-8322-FAE65EA5792C</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200429192912_LadaRegion.cs" />
+    <Compile Remove="Migrations\20200429192912_LadaRegion.Designer.cs" />
+    <Compile Remove="Migrations\20200430221627_listWS.cs" />
+    <Compile Remove="Migrations\20200430221627_listWS.Designer.cs" />
+    <Compile Remove="Migrations\20200430222036_newWS.cs" />
+    <Compile Remove="Migrations\20200430222036_newWS.Designer.cs" />
+    <Compile Remove="Migrations\20200505201553_AddMontoCS.cs" />
+    <Compile Remove="Migrations\20200505201553_AddMontoCS.Designer.cs" />
+    <Compile Remove="Migrations\20200509215547_fixGrupoId.cs" />
+    <Compile Remove="Migrations\20200509215547_fixGrupoId.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Karambolo.AspNetCore.Bundling.NUglify" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNet.Web.Optimization" Version="1.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="3.1.3" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Language.Intellisense" Version="16.4.280" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,41 @@
+﻿@model Octopus.Models.WebServRegion
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>WebServRegion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RegionId" class="control-label"></label>
+                <select asp-for="RegionId" class="form-control" asp-items="ViewBag.RegionId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="WebServiceId" class="control-label"></label>
+                <div class="row">
+
+                    <select asp-for="WebServiceId" class="form-control col-9" asp-items="ViewBag.WebServiceId"></select>
+                    <a class="btn btn-primary col-3" asp-controller="WebServices" asp-action="Index">Editar</a>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

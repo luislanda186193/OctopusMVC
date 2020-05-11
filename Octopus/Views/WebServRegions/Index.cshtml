@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Octopus.Models.WebServRegion>
+
+
+@{
+    ViewData["Title"] = "Index";
+    SelectList regions = ViewBag.regions;
+    SelectList webServices = ViewBag.webServices;
+}
+
+<h1>WS Config</h1>
+
+<p>
+    <!--a class="btn btn-success" asp-action="Create">Create New</a-->
+</p>
+
+@foreach (var item in Model)
+{
+
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Region <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Regions" asp-action="Index">Edit</a></th>
+            <th>WS <a class="btn btn-success btn-sm" asp-area="" asp-controller="WebServices" asp-action="Index">Edit</a></th>
+
+            <!--th>Carrier</th-->
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+             
+                <td>
+                    @item.Region.RegionName
+                </td>
+                <td>
+           
+
+                    <input type="button" asp-action="Edit" class="btn btn-dark" asp-route-id="@item.Id" disabled value="Edit"> |
+
+
+                </td>
+
+
+
+               
+
+            </tr>
+        }
+</tbody>
+</table>

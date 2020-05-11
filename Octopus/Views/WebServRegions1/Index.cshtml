@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Octopus.Models.WebServRegion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Region.Carrier)
+                <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Carriers" asp-action="Index">Edit</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Region)
+                <a class="btn btn-success btn-sm" asp-area="" asp-controller="Regions" asp-action="Index">Edit</a>
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.WebService.Order)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WebService.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WebService)
+                <a class="btn btn-success btn-sm" asp-area="" asp-controller="WebServices" asp-action="Index">Edit</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region.Carrier.CarrierName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region.RegionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WebService.Order)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WebService.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WebService.WebServDesc.WebServiceName)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
