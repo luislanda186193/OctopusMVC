@@ -1,0 +1,41 @@
+@model IEnumerable<Octopus.Models.UsuarioRegion>
+
+@inject Octopus.Data.ApplicationDbContext context
+@{//@model dynamic
+    ViewData["Title"] = "Index";
+    var regiones = ViewBag.regions;
+    var userId = ViewBag.userId;
+}
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@foreach (Octopus.Models.Region region in regiones)
+{
+    await Html.RenderPartialAsync("~/Views/UserRegions/Create.cshtml", new Octopus.Models.UsuarioRegion() {Status = true, UserId = userId, RegionId = region.Id, Region = region }); //as IDictionary<string, object>);
+
+    <!--form method="post" asp-action="Create" asp-controller="UserRegions"  data-content="" data="">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label class="control-label">Region</label>
+            <input class="form-control" name="RegionId" value="" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">UserId</label>
+            <input class="form-control" name="UserId" value=""/>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Comision</label>
+            <input name="Comision" #Comision class="form-control" />
+        </div>
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" name="Status" />
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form-->
+}

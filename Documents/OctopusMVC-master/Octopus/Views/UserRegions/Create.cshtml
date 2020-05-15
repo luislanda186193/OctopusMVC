@@ -1,0 +1,45 @@
+@model Octopus.Models.UsuarioRegion
+
+@{
+    ViewData["Title"] = "Create";
+}
+    <div id="forma">
+        <h3>@Model.Region.Carrier.CarrierName<small>@Model.Region.RegionName</small></h3>
+        <hr />
+        <div class="container">
+            <div class="col-md-4 form-inline">
+                <a class="col-12"> @ViewBag.successMsg</a> 
+
+                <form asp-action="Create" class="form-inline" method="POST" data-ajax="true" data-ajax-update="forma">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="UserId" class="form-control" value="@Model.UserId" />
+                    <input type="hidden" asp-for="Region" class="form-control" value="@Model.Region" />
+                    <input type="hidden" asp-for="RegionId" class="form-control" value="@Model.RegionId" />
+                    <div class="form-group">
+                        <label asp-for="Comision" class="control-label"></label>
+                        <input asp-for="Comision" class="form-control" />
+                        <label class="form-check-label">
+                            Activo <input class="form-check-input" asp-for="Status" />
+                        </label>
+                        @if (ViewBag.editar == true)
+                        {
+                            <input type="submit" value="Editar" class="btn btn-success" />
+                        }
+                        else
+                        {
+                            <input type="submit" value="Asignar" class="btn btn-primary" />
+                        }
+
+                        <span asp-validation-for="Comision" class="text-danger"></span>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+@section Scripts {
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
